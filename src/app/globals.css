@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #08080c;
+  color: #f5f5fa;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139, 92, 246, 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(34, 211, 238, 0.08), transparent 60%),
+    linear-gradient(180deg, #08080c 0%, #050507 100%);
+  background-attachment: fixed;
+  min-height: 100dvh;
+}
+
+/* subtle starfield via dots */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 80%);
+  z-index: 0;
+}
+
+@layer components {
+  .glass {
+    @apply bg-bg-card/70 backdrop-blur-xl border border-white/5;
+  }
+  .card {
+    @apply glass rounded-2xl shadow-card;
+  }
+  .heading {
+    @apply font-display font-semibold tracking-tight;
+  }
+  .shimmer-text {
+    background: linear-gradient(90deg, #f5f5fa 0%, #a78bfa 25%, #22d3ee 50%, #a78bfa 75%, #f5f5fa 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
