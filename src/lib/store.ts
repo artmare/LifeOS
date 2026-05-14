@@ -131,13 +131,7 @@ function comboMultiplier(count: number): number {
   return 1;
 }
 
-const INITIAL_LANGUAGE: Language = (() => {
-  if (typeof navigator === "undefined") return "en";
-  const raw = (navigator.language || "en").toLowerCase();
-  if (raw.startsWith("ru")) return "ru";
-  if (raw.startsWith("de")) return "de";
-  return "en";
-})();
+const INITIAL_LANGUAGE: Language = "en";
 
 const WELCOME_MARKER = "__t:coach.welcome";
 
